@@ -1,0 +1,22 @@
+{
+  "name": "gui-network-monitor",
+  "version": "1.0",
+  "description": " It can get all API request header, request body, response header, response body, request URL",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "gui-network-monitor",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": ["inject.js"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.synnex.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
